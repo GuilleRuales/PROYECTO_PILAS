@@ -19,6 +19,45 @@ public class Ventana {
             public void actionPerformed(ActionEvent e) {
                 pila.apilar(Integer.parseInt(textNumero.getText()));
                 textArea1.setText(pila.toString());
+                textNumero.setText("");
+            }
+        });
+        desapilarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try{
+                    JOptionPane.showMessageDialog(null,"El dato sacado es: "+pila.desapilar());
+                    textArea1.setText(pila.toString());
+                }catch (Exception ex){
+                    JOptionPane.showMessageDialog(null,ex.getMessage());
+                }
+            }
+        });
+        cimaButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try{
+                    JOptionPane.showMessageDialog(null,"El dato de la cima es: "+pila.cima());
+                    textArea1.setText(pila.toString());
+                }catch (Exception ex){
+                    JOptionPane.showMessageDialog(null,ex.getMessage());
+                }
+            }
+        });
+        buscarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    int indice = pila.buscarElemento(Integer.parseInt(textNumero.getText()));
+                    if (indice == -1){
+                        JOptionPane.showMessageDialog(null, "Elemento no encontrado");
+                    }else{
+                        JOptionPane.showMessageDialog(null,"El elemento es: "+
+                                textNumero.getText()+ " se encuentra en la posición "+indice);
+                    }
+                }catch (Exception exc){
+
+                }
             }
         });
     }

@@ -7,7 +7,7 @@ public class Pila {
         numeros = new Stack<Integer>();
     }
 
-    public boolean estaVaacia(){
+    public boolean estaVacia(){
         return numeros.empty();
     }
 
@@ -16,20 +16,20 @@ public class Pila {
     }
 
     public Integer desapilar() throws Exception {
-        if (estaVaacia())
+        if (estaVacia())
             throw new Exception("No hay elementos");
         return numeros.pop();
         //POP PARA SACAR ELEMENTOS
     }
 
     public Integer cima() throws Exception{
-        if (estaVaacia())
+        if (estaVacia())
             throw new Exception("No hay elementos");
         return numeros.peek();
     }
 
     public int buscarElemento(int i) throws Exception{
-        if (estaVaacia())
+        if (estaVacia())
             throw new Exception("No hay elementos");
         return numeros.search(i);
     }
@@ -43,4 +43,13 @@ public class Pila {
         return mensaje;
     }
 
+
+    public String toString2() {
+        String mensaje = "";
+        for (int i = numeros.size() - 1; i >= 0; i--) {
+            mensaje += numeros.get(i);
+
+        }
+        return mensaje;
+    }
 }
